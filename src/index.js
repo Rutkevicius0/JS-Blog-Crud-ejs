@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'src/views');
 
 //const blogData = require('./data/sampleBlog');
-const blogs = require('./data/blogDb')
+const blogs = require('./data/blogDb');
 
 //home page
 app.get('/', function (req, res) {
@@ -38,6 +38,7 @@ app.get('/blog', function (req, res) {
   res.render('blog', {
     title: 'Blog',
     page: 'blog',
+    blogs,
   });
 });
 //contacts page
@@ -46,6 +47,15 @@ app.get('/contacts', function (req, res) {
   res.render('contacts', {
     title: 'Contacts',
     page: 'contacts',
+  });
+});
+
+//create blog page
+app.get('/blog/create', function (req, res) {
+  //   res.sendFile(path.join(__dirname, 'pages', 'blog.html'));
+  res.render('createBlog', {
+    title: 'Create Blog',
+    page: 'createBlog',
   });
 });
 

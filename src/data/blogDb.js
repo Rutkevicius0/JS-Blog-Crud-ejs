@@ -1,11 +1,27 @@
 const blogs = [
     {
         id: 1,
-        title: 'This Javascript is amazing',
-        author:'Ovidijus Rutkevicius',
-        body:'I like programming with JS a lot.',
-        date:'2021-05-31',
-        imageUrl:'#'
-    }
+        title: 'Blueberies are awesome',
+        author: 'James Mark',
+        body: 'This is important artice about nothing else ',
+        date: "2021-03-15",
+        imgUrl: '#'
+    },
+    {
+        id: 2,
+        title: 'Shark atack',
+        author: 'James Mark',
+        body: 'This is important artice about nothing else ',
+        date: "2021-03-15",
+        imgUrl: '#'
+    },
+    {
+        id: 3,
+        title: 'Sommer in the spring',
+        author: 'James Mark',
+        body: 'This is important artice about nothing else ',
+        date: "2021-03-15",
+        imgUrl: '#'
+    },
 ]
 module.exports = blogs;
