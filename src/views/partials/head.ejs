@@ -10,9 +10,11 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/style.css">
-    <title>Express Blog <% if (title) {%>
-        <%='| '+title %>
-         <% }%> </title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <% if (page==='createBlog') { %>
+    <script src="/js/create.js" defer type="module"></script>
+    <% } %>
+    <title>Express Blog <% if (title) {%> <%='| '+title %> <% }%></title>
   </head>
-  <body class="container">
+  <body class="container"></body>
+</html>
