@@ -9,13 +9,16 @@ app.set('view engine', 'ejs');
 // nustatom views direktorija
 app.set('views', 'src/views');
 
+const blogData = require('./data/sampleBlog');
+
 //home page
 app.get('/', function (req, res) {
   //   res.sendFile(path.join(__dirname, 'pages', 'index.html'));
   //paimti index.ejs faila is views direktorijos
-  res.render('index',{
-      title:'Home',
-      page:'home'
+  res.render('index', {
+    title: 'Home',
+    page: 'home',
+    blogData,
   });
 });
 
@@ -24,24 +27,24 @@ app.get('/about', function (req, res) {
   //   res.sendFile(path.join(__dirname, 'pages', 'about.html'));
   res.render('about', {
     title: 'About us',
-    page:'about'
+    page: 'about',
   });
 });
 
 //blog page
 app.get('/blog', function (req, res) {
   //   res.sendFile(path.join(__dirname, 'pages', 'blog.html'));
-  res.render('blog',{
-      title:'Blog',
-      page:'blog'
+  res.render('blog', {
+    title: 'Blog',
+    page: 'blog',
   });
 });
 //contacts page
 app.get('/contacts', function (req, res) {
   //   res.sendFile(path.join(__dirname, 'pages', 'contacts.html'));
-  res.render('contacts',{
-      title:'Contacts',
-      page:'contacts'
+  res.render('contacts', {
+    title: 'Contacts',
+    page: 'contacts',
   });
 });
 
