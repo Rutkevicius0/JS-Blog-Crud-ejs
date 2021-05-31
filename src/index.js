@@ -29,6 +29,11 @@ app.get('/blog', function (req, res) {
   //   res.sendFile(path.join(__dirname, 'pages', 'blog.html'));
   res.render('blog');
 });
+//contacts page
+app.get('/contacts', function (req, res) {
+  //   res.sendFile(path.join(__dirname, 'pages', 'contacts.html'));
+  res.render('contacts');
+});
 
 const staticPath = path.join(__dirname, 'static');
 //statine direktorija css, js ,img ir kitiem statiniam failam
