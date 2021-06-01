@@ -3,6 +3,7 @@ const router = express.Router();
 
 const blogData = require('../data/sampleBlog');
 const blogs = require('../data/blogDb');
+const Post = require('../models/post');
 //home page
 router.get('/', function (req, res) {
   //   res.sendFile(path.join(__dirname, 'pages', 'index.html'));
@@ -25,12 +26,15 @@ router.get('/about', function (req, res) {
 
 //blog page
 router.get('/blog', function (req, res) {
-  //   res.sendFile(path.join(__dirname, 'pages', 'blog.html'));
-  res.render('blog', {
-    title: 'Blog',
-    page: 'blog',
-    blogs,
-  });
+  Post.find()
+    .then((result) => {
+      res.render('blog', {
+        title: 'Blog',
+        page: 'blog',
+        blogs: result,
+      });
+    })
+    .catch((err) => console.error(err.message));
 });
 //contacts page
 router.get('/contacts', function (req, res) {
@@ -49,17 +53,31 @@ router.get('/blog/create', function (req, res) {
     page: 'createBlog',
   });
 });
+//add blog
+router.get('/blog/add-post', (req, res) => {
+  //nauja posta pgal schemoj aprasyta modeli
+  const newPost = new Post({
+    title: '3000 pingpong ',
+    author: 'O.R',
+    body: 'Warxone',
+  });
+  //issaugoti duoemnubazeje
+  newPost
+    .save()
+    .then((result) => res.send(result))
+    .catch((err) => console.error(err.message));
+});
 
 //single blog page
 router.get('/single/:id', function (req, res) {
-    const blogId = req.params.id;
-    const found = blogs.find(p=>p.id===+blogId);
-    console.log(found);
-    res.render('singlePage', {
-      title: 'Single blog page',
-      page: 'singlePage',
-      post: found,
-    });
+  const blogId = req.params.id;
+  const found = blogs.find((p) => p.id === +blogId);
+  console.log(found);
+  res.render('singlePage', {
+    title: 'Single blog page',
+    page: 'singlePage',
+    post: found,
   });
+});
 
 module.exports = router;
