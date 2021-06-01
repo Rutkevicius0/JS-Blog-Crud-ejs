@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const app = express();
 const path = require('path');
 
-const Post = require('./models/post');
-
 const PORT = 3000;
 
 const { mongoDbString } = require('./config/config');
@@ -32,7 +30,7 @@ app.set('views', 'src/views');
 app.use(express.json());
 
 app.use('/', pagesRoutes);
-app.use('/', apiRoutes);
+app.use('/api/blog', apiRoutes);
 
 const staticPath = path.join(__dirname, 'static');
 //statine direktorija css, js ,img ir kitiem statiniam failam

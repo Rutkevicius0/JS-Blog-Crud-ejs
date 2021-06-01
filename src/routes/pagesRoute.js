@@ -47,26 +47,12 @@ router.get('/contacts', function (req, res) {
 
 //create blog page
 router.get('/blog/create', function (req, res) {
-  //   res.sendFile(path.join(__dirname, 'pages', 'blog.html'));
   res.render('createBlog', {
     title: 'Create Blog',
     page: 'createBlog',
   });
 });
 //add blog
-router.get('/blog/add-post', (req, res) => {
-  //nauja posta pgal schemoj aprasyta modeli
-  const newPost = new Post({
-    title: '3000 pingpong ',
-    author: 'O.R',
-    body: 'Warxone',
-  });
-  //issaugoti duoemnubazeje
-  newPost
-    .save()
-    .then((result) => res.send(result))
-    .catch((err) => console.error(err.message));
-});
 
 //single blog page
 router.get('/single/:id', function (req, res) {
