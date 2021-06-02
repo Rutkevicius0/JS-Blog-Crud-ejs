@@ -57,12 +57,12 @@ router.get('/blog/create', function (req, res) {
 //single blog page
 router.get('/single/:id', function (req, res) {
   const blogId = req.params.id;
-  const found = blogs.find((p) => p.id === +blogId);
-  console.log(found);
-  res.render('singlePage', {
-    title: 'Single blog page',
-    page: 'singlePage',
-    post: found,
+  Post.findById(blogId).then((result) => {
+    res.render('singlePage', {
+      title: 'Single blog page',
+      page: 'singlePage',
+      post: result,
+    });
   });
 });
 
