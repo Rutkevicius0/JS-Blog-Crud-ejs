@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
   //issaugoti duoemnubazeje
   newPost
     .save()
-    .then((result) => res.send(result))
+    .then((result) => res.send({ redirect: '/blog' }))
     .catch((err) => console.error(err.message));
 });
 

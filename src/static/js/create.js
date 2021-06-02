@@ -33,6 +33,8 @@ mainForm.addEventListener('submit', function (event) {
   const fdJsonFormat = JSON.stringify(Object.fromEntries(fd));
   console.log(fdJsonFormat);
   MyFetch.createPost(fdJsonFormat, (ats) => {
-    console.log(ats);
+    if (ats.redirect) {
+      window.location = ats.redirect;
+    }
   });
 });
