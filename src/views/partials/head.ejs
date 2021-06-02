@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="/css/style.css" />
     <% if (page==='createBlog') { %>
     <script src="/js/create.js" defer type="module"></script>
+    <% } %> <% if (page==='singlePage') { %>
+    <script src="/js/single.js" defer type="module"></script>
+    <% } %> <% if (page==='singlePageEdit') { %>
+    <script src="/js/edit.js" defer type="module"></script>
     <% } %>
     <title>Express Blog <% if (title) {%> <%='| '+title %> <% }%></title>
   </head>

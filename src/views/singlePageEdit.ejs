@@ -1,0 +1,46 @@
+<%- include('./partials/head.ejs') %>
+<!-- ikeliam bendra navigacijos faila -->
+<%- include('./partials/nav.ejs') %>
+
+<section id="post-section" class="jumbotron text-center">
+  <div class="container">
+    <form id="edit-post-form" data-post-id="<%= post._id %> " class="mb-5">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          placeholder="<%=post.title%>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input
+          type="text"
+          class="form-control"
+          id="author"
+          name="author"
+          placeholder="<%= post.author %>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="body">Text</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="body"
+          name="body"
+          placeholder="<%= post.body %>"
+        ></textarea>
+      </div>
+      <button id="doneEdit" type="submit" class="btn btn-primary">
+        Save Post
+      </button>
+      <a id="delete" href="#" class="btn btn-danger my-2">Delete</a>
+    </form>
+  </div>
+</section>
+
+<%- include('./partials/footer.ejs') %>

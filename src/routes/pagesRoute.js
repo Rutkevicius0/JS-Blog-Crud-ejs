@@ -65,5 +65,16 @@ router.get('/single/:id', function (req, res) {
     });
   });
 });
+//single page edit
+router.get('/single/edit/:id', function (req, res) {
+  const blogId = req.params.id;
+  Post.findById(blogId).then((result) => {
+    res.render('singlePageEdit', {
+      title: 'Single blog page Edit',
+      page: 'singlePageEdit',
+      post: result,
+    });
+  });
+});
 
 module.exports = router;

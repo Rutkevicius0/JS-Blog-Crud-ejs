@@ -2,13 +2,22 @@
 <!-- ikeliam bendra navigacijos faila -->
 <%- include('./partials/nav.ejs') %>
 
-<section class="jumbotron text-center" data-post-id="<%= post._id %> ">
+<section
+  id="post-section"
+  class="jumbotron text-center"
+  data-post-id="<%= post._id %> "
+>
   <div class="container">
     <h1><%= post.title %></h1>
     <h4><%= post.author %></h4>
     <p class="lead text-muted"><%= post.body %></p>
     <p>
-      <a href="#" class="btn btn-primary my-2">Edit</a>
+      <a
+        id="edit"
+        href="/single/edit/<%= post._id %>"
+        class="btn btn-primary my-2"
+        >Edit</a
+      >
       <a id="delete" href="#" class="btn btn-danger my-2">Delete</a>
     </p>
   </div>
