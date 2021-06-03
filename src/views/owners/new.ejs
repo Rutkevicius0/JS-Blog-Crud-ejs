@@ -6,24 +6,25 @@
     Owner created <%= result.name %>
   </div>
   <% } %>
-
-  <form id="create-owner-form" class="mb-5" method="POST">
-    <h3 class="mt-5">Create New Owner</h3>
+  <h3 class="mt-5">Create New Owner</h3>
+  <form id="create-owner-form" class="mb-5" action="/owners/new" method="POST">
     <div class="form-group">
-      <label for="ownerName">Name</label>
+      <label for="name">Name</label>
       <input
         type="text"
         class="form-control"
-        id="ownerName"
+        id="name"
+        name="name"
         placeholder="Name"
       />
     </div>
     <div class="form-group">
-      <label for="ownerEmail">Email address</label>
+      <label for="email">Email address</label>
       <input
-        type="email"
+        type="text"
         class="form-control"
-        id="ownerEmail"
+        id="email"
+        name="email"
         placeholder="name@example.com"
       />
     </div>

@@ -3,17 +3,6 @@ const router = express.Router();
 
 const Owner = require('../models/owner');
 
-const ownersArr = [
-  {
-    name: 'Obi',
-    email: ' obi.vankenobi@gmail.com',
-  },
-  {
-    name: 'matchu',
-    email: 'matchu.pikchu@yahoo.com',
-  },
-  { name: 'Rutkevicius', email: 'ovis@gmail.com' },
-];
 // router.get('/', (req, res) => {
 //   res.render('owners/index', {
 //     title: 'Owners',
@@ -24,8 +13,8 @@ const ownersArr = [
 
 router.post('/new', (req, res) => {
   const newOwner = new Owner({
-    name: 'ovis',
-    email: 'req.body.email',
+    name: req.body.name,
+    email: req.body.email,
   });
   newOwner
     .save()
@@ -38,8 +27,9 @@ router.post('/new', (req, res) => {
     })
     .catch((err) => console.log(err));
 });
+
 router.get('/new', (req, res) => {
-  res.render('owners/new', {
+  res.render('owners/index', {
     title: 'Add owner',
     page: 'owners_new',
   });
@@ -68,15 +58,15 @@ router.get('/single/:id', function (req, res) {
     })
     .catch((err) => console.error(err.message));
 });
-router.get('/single/:id/delete', function (req, res) {
-  const ownerId = req.params.id;
-  Owner.findByIdAndDelete(ownerId)
+// router.get('/delete/:id', function (req, res) {
+//   console.log(req.params.id);
+//   return res.send(req.params.id);
+// });
+
+router.post('/delete/:id', function (req, res) {
+  Owner.findByIdAndDelete(req.params.id)
     .then((result) => {
-      res.render('owners/delete', {
-        title: 'Single owners',
-        page: 'owners',
-        result,
-      });
+      res.redirect('/owners');
     })
     .catch((err) => console.error(err.message));
 });
