@@ -1,0 +1,12 @@
+<%- include('../partials/head.ejs') %> <%- include('../partials/nav.ejs') %>
+
+<main role="main">
+  <h1>this is the owners page</h1>
+  <ul class="list-group list-group-flush">
+    <% ownersArr.forEach(o=>{ %>
+    <li class="list-group-item"><%= o.name %> <%= o.email %></li>
+    <% }) %>
+  </ul>
+</main>
+
+<%- include('../partials/footer.ejs') %>

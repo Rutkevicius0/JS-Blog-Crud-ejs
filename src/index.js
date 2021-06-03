@@ -1,10 +1,11 @@
 const express = require('express');
-const mongoose = require('mongoose');
+
 const app = express();
 const path = require('path');
 
 const PORT = 3000;
 
+const mongoose = require('mongoose');
 const { mongoDbString } = require('./config/config');
 mongoose
   .connect(mongoDbString, {
@@ -20,6 +21,7 @@ mongoose
 //pages routes
 const pagesRoutes = require('./routes/pagesRoute');
 const apiRoutes = require('./routes/api/apiRoutes');
+const ownersRoutes = require('./routes/ownersRoutes');
 //const router = require('./routes/pagesRoute');
 
 //register view engine
@@ -30,6 +32,9 @@ app.set('views', 'src/views');
 app.use(express.json());
 
 app.use('/', pagesRoutes);
+
+app.use('/owners', ownersRoutes);
+
 app.use('/api/blog', apiRoutes);
 
 const staticPath = path.join(__dirname, 'static');

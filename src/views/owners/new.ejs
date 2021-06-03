@@ -1,0 +1,12 @@
+<%- include('../partials/head.ejs') %> <%- include('../partials/nav.ejs') %>
+
+<main role="main">
+  <h1>this is the new owner page</h1>
+  <% if(result) {%>
+  <div class="alert alert-success" role="alert">
+    Owner created <%= result.name %>
+  </div>
+  <% } %>
+</main>
+
+<%- include('../partials/footer.ejs') %>
