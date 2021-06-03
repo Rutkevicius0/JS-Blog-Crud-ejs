@@ -1,11 +1,34 @@
 <%- include('../partials/head.ejs') %> <%- include('../partials/nav.ejs') %>
 
 <main role="main">
-  <% if(result) {%>
+  <% if(locals.result&&result) {%>
   <div class="alert alert-success" role="alert">
     Owner created <%= result.name %>
   </div>
   <% } %>
+
+  <form id="create-owner-form" class="mb-5" method="POST">
+    <h3 class="mt-5">Create New Owner</h3>
+    <div class="form-group">
+      <label for="ownerName">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="ownerName"
+        placeholder="Name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="ownerEmail">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="ownerEmail"
+        placeholder="name@example.com"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Create</button>
+  </form>
 </main>
 
 <%- include('../partials/footer.ejs') %>

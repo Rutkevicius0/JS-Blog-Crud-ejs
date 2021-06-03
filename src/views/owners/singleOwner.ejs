@@ -1,0 +1,22 @@
+<%- include('../partials/head.ejs') %> <%- include('../partials/nav.ejs') %>
+
+<main role="main">
+  <a href="/owners" class="btn btn-primary mb-5">Back</a>
+  <div class="media mb-5">
+    <img
+      src="https://st.depositphotos.com/2218212/2938/i/600/depositphotos_29387653-stock-photo-facebook-profile.jpg"
+      class="mr-3 img-thumbnail"
+      style="height: 64px"
+      alt="..."
+    />
+    <div class="media-body">
+      <h5 class="mt-0 mb-1"><%= result.name %></h5>
+      <p><%= result.email %></p>
+    </div>
+    <div>
+      <button class="btn btn-info">Edit</button>
+      <button class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</main>
+<%- include('../partials/footer.ejs') %>

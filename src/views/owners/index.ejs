@@ -2,6 +2,7 @@
 
 <main role="main">
   <h1>Owners</h1>
+  <a href="/owners/new" class="btn btn-primary mb-5">Create New Owner</a>
   <ul class="list-group list-group-flush">
     <% ownersArr.forEach(o=>{ %>
     <li class="media pb-3">
@@ -16,36 +17,13 @@
         <p><%= o.email %></p>
       </div>
       <div>
-        <button class="btn btn-info">View</button>
+        <a href="/owners/single/<%= o.id %> " class="btn btn-info">View</a>
         <button class="btn">Edit</button>
       </div>
     </li>
     <!-- <li class="list-group-item"><%= o.name %> <%= o.email %></li> -->
     <% }) %>
   </ul>
-
-  <form class="mb-5">
-    <h3 class="mt-5">Create New Owner</h3>
-    <div class="form-group">
-      <label for="ownerName">Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="ownerName"
-        placeholder="Name"
-      />
-    </div>
-    <div class="form-group">
-      <label for="ownerEmail">Email address</label>
-      <input
-        type="email"
-        class="form-control"
-        id="ownerEmail"
-        placeholder="name@example.com"
-      />
-    </div>
-    <button type="submit" class="btn btn-primary mb-2">Create</button>
-  </form>
 </main>
 
 <%- include('../partials/footer.ejs') %>
