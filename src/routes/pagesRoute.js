@@ -28,7 +28,7 @@ router.get('/about', function (req, res) {
 router.get('/blog', function (req, res) {
   Post.find()
     .then((result) => {
-      res.render('blog', {
+      res.render('blog/blog', {
         title: 'Blog',
         page: 'blog',
         blogs: result,
@@ -46,8 +46,8 @@ router.get('/contacts', function (req, res) {
 });
 
 //create blog page
-router.get('/blog/create', function (req, res) {
-  res.render('createBlog', {
+router.get('/create', function (req, res) {
+  res.render('blog/createBlog', {
     title: 'Create Blog',
     page: 'createBlog',
   });
@@ -58,7 +58,7 @@ router.get('/blog/create', function (req, res) {
 router.get('/single/:id', function (req, res) {
   const blogId = req.params.id;
   Post.findById(blogId).then((result) => {
-    res.render('singlePage', {
+    res.render('blog/singlePage', {
       title: 'Single blog page',
       page: 'singlePage',
       post: result,
@@ -69,7 +69,7 @@ router.get('/single/:id', function (req, res) {
 router.get('/single/edit/:id', function (req, res) {
   const blogId = req.params.id;
   Post.findById(blogId).then((result) => {
-    res.render('singlePageEdit', {
+    res.render('blog/singlePageEdit', {
       title: 'Single blog page Edit',
       page: 'singlePageEdit',
       post: result,
