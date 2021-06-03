@@ -14,18 +14,18 @@ const ownersArr = [
   },
   { name: 'Rutkevicius', email: 'ovis@gmail.com' },
 ];
-router.get('/', (req, res) => {
-  res.render('owners/index', {
-    title: 'Owners',
-    page: 'owners',
-    ownersArr,
-  });
-});
+// router.get('/', (req, res) => {
+//   res.render('owners/index', {
+//     title: 'Owners',
+//     page: 'owners',
+//     ownersArr,
+//   });
+// });
 
 router.get('/new', (req, res) => {
   const newOwner = new Owner({
-    name: ownersArr[0].name,
-    email: ownersArr[0].email,
+    name: req.body.name,
+    email: req.body.email,
   });
   newOwner
     .save()
@@ -37,5 +37,17 @@ router.get('/new', (req, res) => {
       });
     })
     .catch((err) => console.log(err));
+});
+
+router.get('/', function (req, res) {
+  Owner.find()
+    .then((result) => {
+      res.render('owners/index', {
+        title: 'Owners',
+        page: 'owners',
+        ownersArr: result,
+      });
+    })
+    .catch((err) => console.error(err.message));
 });
 module.exports = router;
