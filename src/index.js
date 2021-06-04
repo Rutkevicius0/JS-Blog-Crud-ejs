@@ -21,6 +21,7 @@ mongoose
 //pages routes
 const pagesRoutes = require('./routes/pagesRoute');
 const apiRoutes = require('./routes/api/apiRoutes');
+const apiOwners = require('./routes/api/apiOwners');
 const blogRoutes = require('./routes/blogRoutes');
 const ownersRoutes = require('./routes/ownersRoutes');
 //const router = require('./routes/pagesRoute');
@@ -38,6 +39,7 @@ app.use('/', pagesRoutes);
 app.use('/owners', ownersRoutes);
 app.use('/blog', blogRoutes);
 app.use('/api/blog', apiRoutes);
+app.use('/api/owners', ownersRoutes);
 
 const staticPath = path.join(__dirname, 'static');
 //statine direktorija css, js ,img ir kitiem statiniam failam

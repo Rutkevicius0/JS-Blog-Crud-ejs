@@ -19,7 +19,7 @@ const owners_single = (req, res) => {
     .then((result) => {
       res.render('owners/singleOwner', {
         title: 'Single owners',
-        page: 'owners',
+        page: 'ownersSingle',
         result,
       });
     })
@@ -36,7 +36,7 @@ const owners_postNew = (req, res) => {
     .then((result) => {
       res.render('owners/new', {
         title: 'Add owner',
-        page: 'owners_new',
+        page: 'ownersNew',
         result,
       });
     })
@@ -45,7 +45,7 @@ const owners_postNew = (req, res) => {
 const owners_new = (req, res) => {
   res.render('owners/new', {
     title: 'Add owner',
-    page: 'owners_new',
+    page: 'ownersNew',
   });
 };
 const owners_deletePost = (req, res) => {
@@ -62,7 +62,7 @@ const owners_edit = (req, res) => {
     .then((result) => {
       res.render('owners/edit', {
         title: 'Edit owner',
-        page: 'owners',
+        page: 'ownersEdit',
         result,
       });
     })
