@@ -76,7 +76,7 @@ router.get('/edit/:id', function (req, res) {
   Owner.findById(ownerId)
     .then((result) => {
       res.render('owners/edit', {
-        title: 'Single owners',
+        title: 'Edit owner',
         page: 'owners',
         result,
       });
