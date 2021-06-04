@@ -21,6 +21,7 @@ mongoose
 //pages routes
 const pagesRoutes = require('./routes/pagesRoute');
 const apiRoutes = require('./routes/api/apiRoutes');
+const blogRoutes = require('./routes/blogRoutes');
 const ownersRoutes = require('./routes/ownersRoutes');
 //const router = require('./routes/pagesRoute');
 
@@ -35,7 +36,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', pagesRoutes);
 
 app.use('/owners', ownersRoutes);
-
+app.use('/blog', blogRoutes);
 app.use('/api/blog', apiRoutes);
 
 const staticPath = path.join(__dirname, 'static');

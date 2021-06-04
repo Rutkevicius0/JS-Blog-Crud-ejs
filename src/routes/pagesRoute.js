@@ -18,14 +18,4 @@ router.get('/blog', blogControllers.blog_blog);
 //contacts page
 router.get('/contacts', blogControllers.blog_contacts);
 
-//create blog page
-router.get('/create', blogControllers.blog_create);
-//add blog
-
-//single blog page
-router.get('/single/:id', blogControllers.blog_single);
-
-//single page edit
-router.get('/single/edit/:id', blogControllers.blog_edit);
-
 module.exports = router;

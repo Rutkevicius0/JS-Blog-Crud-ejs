@@ -10,7 +10,6 @@ router.get('/api/blog', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
   const newPost = new Post({
     title: req.body.title,
     author: req.body.author,
