@@ -1,15 +1,14 @@
 <%- include('./partials/head.ejs') %>
 <!-- ikeliam bendra navigacijos faila -->
 <%- include('./partials/nav.ejs') %>
-<h1>This is express app Index</h1>
+<h1>This is page for blogs</h1>
 <h3>Blogs sample</h3>
-
-<ul class="list-group mb-5">
-  <% blogData.forEach((b)=>{%>
-  <li class="list-group-item">
-    <%- `<strong>"${b.title}"</strong> - ${b.author}` %>
-  </li>
-  <% }) %>
-</ul>
+<p>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium vel
+  corrupti rem libero quas consequatur doloremque enim at consequuntur laborum
+  id minus aliquid veritatis, sit odit eius mollitia? Id nostrum aliquid, eos,
+  ipsum blanditiis rem provident labore corporis, quos ut doloremque doloribus
+  quidem molestias. Quasi fugiat atque vero eius debitis.
+</p>
 
 <%- include('./partials/footer.ejs') %>
