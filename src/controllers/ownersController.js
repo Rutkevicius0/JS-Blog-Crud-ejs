@@ -77,6 +77,21 @@ const owners_editPost = (req, res) => {
     })
     .catch((err) => console.log(err));
 };
+
+const owners_search = (req, res) => {
+  const searchRegex = new RegExp(req.query.search, 'i');
+  Owner.find({ name: searchRegex })
+    .then((result) => {
+      res.render('owners/index', {
+        title: 'Owners',
+        page: 'owners',
+        ownersArr: result,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 module.exports = {
   owners_index,
   owners_single,
@@ -85,4 +100,5 @@ module.exports = {
   owners_deletePost,
   owners_edit,
   owners_editPost,
+  owners_search,
 };

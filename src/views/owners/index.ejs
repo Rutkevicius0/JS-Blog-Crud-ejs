@@ -3,8 +3,19 @@
 <main role="main">
   <h1>Owners</h1>
   <a href="/owners/new" class="btn btn-primary mb-5">Create New Owner</a>
-  <ul class="list-group list-group-flush">
-    <% ownersArr.forEach(o=>{ %>
+  <form class="mb-5 mt-3" action="/owners/search" method="get">
+    <label for="search">Search owner</label>
+    <input
+      type="search"
+      class="form-control w-50"
+      name="search"
+      id="search"
+      onkeyup="searchFunction()"
+    />
+    <button class="btn btn-success mt-2" type="submit">Search</button>
+  </form>
+  <ul id="ul" class="list-group list-group-flush">
+    <% if(ownersArr.length>0) {%> <% ownersArr.forEach(o=>{ %>
     <li class="media pb-3">
       <img
         src="https://st.depositphotos.com/2218212/2938/i/600/depositphotos_29387653-stock-photo-facebook-profile.jpg"
@@ -22,7 +33,9 @@
       </div>
     </li>
     <!-- <li class="list-group-item"><%= o.name %> <%= o.email %></li> -->
-    <% }) %>
+    <% }) %> <% } else {%>
+    <div class="alert alert-danger">Not found</div>
+    <% } %>
   </ul>
   <!-- <div id="owner-modal" class="modal">
     <div class="modal__content">
@@ -33,3 +46,25 @@
 </main>
 
 <%- include('../partials/footer.ejs') %>
+
+<script>
+  function searchFunction() {
+    // Declare variables
+    let input, filter, ul, li, h5, i, txtValue;
+    input = document.getElementById('search');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('ul');
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      h5 = li[i].getElementsByTagName('h5')[0];
+      txtValue = h5.textContent || h5.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = '';
+      } else {
+        li[i].style.display = 'none';
+      }
+    }
+  }
+</script>

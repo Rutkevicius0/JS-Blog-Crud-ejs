@@ -31,4 +31,6 @@ router.post('/delete/:id', ownersControllers.owners_deletePost);
 router.get('/edit/:id', ownersControllers.owners_edit);
 
 router.post('/edit/:id', ownersControllers.owners_editPost);
+
+router.get('/search', ownersControllers.owners_search);
 module.exports = router;
