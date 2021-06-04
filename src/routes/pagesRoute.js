@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const blogControllers = require('../controllers/blogController');
+
 const blogData = require('../data/sampleBlog');
 const blogs = require('../data/blogDb');
 const Post = require('../models/post');
