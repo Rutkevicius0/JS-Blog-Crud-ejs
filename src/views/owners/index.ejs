@@ -18,11 +18,18 @@
       </div>
       <div>
         <a href="/owners/single/<%= o.id %> " class="btn btn-info">View</a>
+        <a href="#owner-modal">Open here</a>
       </div>
     </li>
     <!-- <li class="list-group-item"><%= o.name %> <%= o.email %></li> -->
     <% }) %>
   </ul>
+  <!-- <div id="owner-modal" class="modal">
+    <div class="modal__content">
+      <h5>Name</h5>
+      <h6>Email</h6>
+    </div>
+  </div> -->
 </main>
 
 <%- include('../partials/footer.ejs') %>

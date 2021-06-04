@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const Owner = require('../models/owner');
+//load controllers
+const ownersControllers = require('../controllers/ownersController');
 
 // router.get('/', (req, res) => {
 //   res.render('owners/index', {
@@ -11,6 +13,7 @@ const Owner = require('../models/owner');
 //   });
 // });
 
+//creating nwe owner
 router.post('/new', (req, res) => {
   const newOwner = new Owner({
     name: req.body.name,
@@ -27,7 +30,7 @@ router.post('/new', (req, res) => {
     })
     .catch((err) => console.log(err));
 });
-
+//renddering new owner form page
 router.get('/new', (req, res) => {
   res.render('owners/index', {
     title: 'Add owner',
@@ -35,17 +38,8 @@ router.get('/new', (req, res) => {
   });
 });
 
-router.get('/', function (req, res) {
-  Owner.find()
-    .then((result) => {
-      res.render('owners/index', {
-        title: 'Owners',
-        page: 'owners',
-        ownersArr: result,
-      });
-    })
-    .catch((err) => console.error(err.message));
-});
+router.get('/', ownersControllers.owners_index);
+
 router.get('/single/:id', function (req, res) {
   const ownerId = req.params.id;
   Owner.findById(ownerId)

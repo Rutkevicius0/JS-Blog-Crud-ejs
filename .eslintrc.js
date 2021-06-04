@@ -9,5 +9,6 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 12,
   },
-  rules: { overrides: [{ excludedFiles: '*.ejs' }] },
+  rules: {},
+  overrides: [{ excludedFiles: '*.ejs' }],
 };
