@@ -71,4 +71,25 @@ router.post('/delete/:id', function (req, res) {
     .catch((err) => console.error(err.message));
 });
 
+router.get('/edit/:id', function (req, res) {
+  const ownerId = req.params.id;
+  Owner.findById(ownerId)
+    .then((result) => {
+      res.render('owners/edit', {
+        title: 'Single owners',
+        page: 'owners',
+        result,
+      });
+    })
+    .catch((err) => console.error(err.message));
+});
+
+router.post('/edit/:id', (req, res) => {
+  const { title, author, body } = req.body;
+  Owner.findByIdAndUpdate(req.params.id, req.body)
+    .then((result) => {
+      res.redirect('/owners');
+    })
+    .catch((err) => console.log(err));
+});
 module.exports = router;

@@ -13,12 +13,11 @@
       <h5 class="mt-0 mb-1"><%= result.name %></h5>
       <p><%= result.email %></p>
     </div>
-    <div>
-      <button class="btn btn-info">Edit</button>
-      <form action="/owners/delete/<%= result.id %> " method="POST">
-        <button class="btn btn-danger" type="submit">Delete</button>
-      </form>
-    </div>
+
+    <a href="/owners/edit/<%= result.id %> " class="btn btn-info">Edit</a>
+    <form action="/owners/delete/<%= result.id %> " method="POST">
+      <button class="btn btn-danger ml-2" type="submit">Delete</button>
+    </form>
   </div>
 </main>
 <%- include('../partials/footer.ejs') %>
